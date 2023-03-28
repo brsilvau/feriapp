@@ -2,3 +2,33 @@
     height: 100vh;
     max-width: 100%;
 }
+
+.loader-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.loader-container {
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 0;
+    padding: 20px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#loader.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

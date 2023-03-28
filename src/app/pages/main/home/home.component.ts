@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { Observable, Subscriber } from 'rxjs';
 import { environment } from '../../../../environments/environment'
@@ -17,11 +17,16 @@ export class HomeComponent implements OnInit {
   
   lines : any[] = [];
 
-  constructor(private http: HttpClient) { }
+  loadingFruits: any;
+
+  constructor(
+    private http: HttpClient,
+    private el: ElementRef,
+  ) { }
 
   public ngAfterViewInit(): void {
     this.loadMap();
-    // this.map.on('click', this.onMapClick);
+    this.map.on('click', this.onMapClick);
   }
 
   private getCurrentPosition(): any {
@@ -57,6 +62,7 @@ export class HomeComponent implements OnInit {
     this.getCurrentPosition()
     .subscribe((position: any) => {
       this.map.setView([position.latitude, position.longitude], 13);
+      this.loadingFruits.classList.remove('show');
     });
 
 
@@ -95,6 +101,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.guardarTextoEnBD('a')
+    this.loadingFruits = this.el.nativeElement.querySelector('#loader');
+    this.loadingFruits.classList.add('show');
   }
 
 }
