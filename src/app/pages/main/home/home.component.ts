@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       maxZoom: 19,
       id: 'mapbox/streets-v11',
-      accessToken: environment.mapbox.accessToken,
+      accessToken: environment.mapboxAccessToken,
     }).addTo(this.map);
 
     this.getCurrentPosition()
