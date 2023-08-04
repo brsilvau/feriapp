@@ -1,8 +1,17 @@
-<div class="loader-overlay" id="loader">
-    <div class="loader-container">
-        <app-loading></app-loading>
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Home</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div class="loader-overlay" id="loader">
+        <div class="loader-container">
+            <app-loading></app-loading>
+        </div>
     </div>
-</div>
-<p>Feriapp Home funciona pefeto!</p>
-<button (click)="toggleDrawing()">Dibujar línea</button>
-<div id="map"></div>
+    <ion-button (click)="toggleDrawing()">Dibujar línea</ion-button>
+    <div id="map"></div>
+</ion-content>
